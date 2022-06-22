@@ -2,18 +2,15 @@ import './App.css';
 import * as React from "react"
 import { useState, useEffect } from "react"
 import Buttons from "./components/Buttons/Buttons.js"
+import Submit from "./components/Submit"
 import WordList from "./components/WordList"
 
 
 function App() {
-  
-
-  /*make "events(state!!!!)" for each thing you want to happen!!! 
-  Highlight letter, connect letters ondrag, send word up above if it matches one of the words in
-  the list. */
 
   const [letters, setLetters] = useState("")
-  const [list, setList] = useState("")
+  const [isVisible, setIsVisible] = useState(false)
+  const [ submit, setSubmit ] = useState(false)
 
   return (
     <div >
@@ -29,10 +26,11 @@ function App() {
           letters={letters}
           setLetters={setLetters}
         />
+        <Submit/>
       </div>
       <div>
         <h3>
-          <WordList />
+         <WordList invisible={isVisible}/>
         </h3>
       </div>
     </div>
